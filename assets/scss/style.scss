@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.height {
+  flex: 1 0 auto;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0px auto;
+}
+
+.name-game {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 60px;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  h3 {
+    text-align: center;
+    padding-top: 50px;
+  }
+}
+
+.result-massage {
+  display: none;
+  box-shadow: 0 0 10px rgb(170, 170, 170);
+  background: white;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+  margin: 10% 5%;
+  z-index: 99;
+
+  &_restart-button {
+    margin: 20px 10px;
+    width: 200px;
+    height: 80px;
+    font-size: 22px;
+    box-shadow: 2px 2px 5px rgb(116, 116, 116);
+    border: none;
+    outline: none;
+    position: relative;
+
+    &:active {
+      top: 3px;
+    }
+  }
+}
+
+.interface {
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &_button {
+      width: 200px;
+      height: 100px;
+      font-size: 22px;
+      box-shadow: 2px 2px 5px rgb(116, 116, 116);
+      border: none;
+      outline: none;
+      position: relative;
+
+      &:active {
+        top: 3px;
+      }
+    }
+
+    &_div {
+      width: 120px;
+      height: 120px;
+      box-shadow: 2px 2px 5px rgb(116, 116, 116);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      #sum-of-points {
+        font-size: 60px;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: rgb(219, 219, 219);
+  padding: 20px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__nav-ul {
+    display: flex;
+
+    li {
+      margin-right: 15px;
+
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    img {
+      transition: 0.1s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  .interface {
+    &__buttons {
+      flex-wrap: wrap;
+
+      &_button {
+        margin: 0 20px 30px;
+      }
+
+      &_div {
+        order: -1;
+        margin: 0 25% 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 360px) {
+  .footer {
+    .container {
+      flex-direction: column;
+    }
+
+    &__social-network {
+      margin-top: 20px;
+    }
+  }
+}

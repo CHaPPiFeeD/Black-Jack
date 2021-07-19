@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script defer src="assets/js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>BlackJack</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="name-game">
+            <div class="container">
+                <h1>BlackJack</h1>
+                <h3 id="remaining-cards"></h3>
+            </div>
+        </div>
+        <div class="height">
+            <div class="container">
+                <div class="result-massage">
+                    <p></p>
+                    <input type="button" class="result-massage_restart-button" value="Начать заново"
+                        onclick="StartGame()">
+                </div>
+            </div>
+        </div>
+        <div class="interface">
+            <div class="container">
+                <div class="interface__buttons">
+                    <input type="button" class="interface__buttons_button" value="Поднять карту" onclick="PlusPoints()">
+                    <div class="interface__buttons_div" title="Ваши очки">
+                        <p id="sum-of-points"></p>
+                    </div>
+                    <input type="button" class="interface__buttons_button" value="Спасовать" onclick="EndGame()">
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div>Дмитрий Шевчук 2021</div>
+                <nav class="footer__social-network">
+                    <ul class="footer__nav-ul">
+                        <li><a href="#"><img src="assets/img/icons/ico-telegram.png" alt=""></a></li>
+                        <li><a href="#"><img src="assets/img/icons/ico-discord.png" alt=""></a></li>
+                        <li><a href="#"><img src="assets/img/icons/ico-github.png" alt=""></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
