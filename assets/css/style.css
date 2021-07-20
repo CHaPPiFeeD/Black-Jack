@@ -23,6 +23,63 @@ body,
           flex-direction: column;
 }
 
+.info {
+  width: 500px;
+  padding: 0 30px;
+  position: fixed;
+  right: -505px;
+  -webkit-box-shadow: 0 0 5px #747474;
+          box-shadow: 0 0 5px #747474;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.info button {
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border: none;
+  position: absolute;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+  left: -65px;
+}
+
+.info button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.info button:active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.info h1 {
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.info p {
+  margin-bottom: 10px;
+  text-indent: 1.5em;
+  text-align: justify;
+}
+
+.info-active {
+  right: 0;
+}
+
+.info-active button {
+  left: 3px;
+}
+
 .height {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
@@ -51,12 +108,12 @@ body,
   font-size: 60px;
   font-family: 'Lobster', cursive;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .name-game h3 {
   text-align: center;
-  padding-top: 50px;
+  margin-bottom: 50px;
 }
 
 .result-massage {
@@ -68,7 +125,6 @@ body,
   font-size: 25px;
   padding: 20px;
   margin: 10% 5%;
-  z-index: 99;
 }
 
 .result-massage_restart-button {
@@ -142,6 +198,7 @@ body,
 .footer {
   background-color: #dbdbdb;
   padding: 20px 0;
+  z-index: 2;
 }
 
 .footer .container {
@@ -169,11 +226,6 @@ body,
   margin-right: 0;
 }
 
-.footer__nav-ul img {
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-}
-
 .footer__nav-ul img:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
@@ -182,6 +234,15 @@ body,
 .footer__nav-ul img:active {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+@media only screen and (max-width: 800px) {
+  .footer {
+    z-index: 0;
+  }
+  .info-active {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 600px) {

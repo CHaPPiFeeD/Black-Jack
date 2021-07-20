@@ -87,3 +87,8 @@ function BlockedButton() {
     $('.interface__buttons_button').attr('disabled', 'disabled');
     $('.result-massage').css('display', 'block');
 }
+
+function Info() {
+    $('.info').toggleClass('info-active');
+    console.log('object');
+}
