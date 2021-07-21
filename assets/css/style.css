@@ -59,6 +59,12 @@ body,
           transform: scale(1);
 }
 
+.info button img {
+  margin: 0;
+  background-color: white;
+  border-radius: 50%;
+}
+
 .info h1 {
   font-size: 40px;
   font-family: 'Lobster', cursive;
@@ -84,6 +90,12 @@ body,
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .container {
@@ -113,7 +125,27 @@ body,
 
 .name-game h3 {
   text-align: center;
-  margin-bottom: 50px;
+  margin: 20px;
+}
+
+.start-game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.start-game button {
+  width: 200px;
+  height: 80px;
+  font-size: 22px;
+  -webkit-box-shadow: 2px 2px 5px #747474;
+          box-shadow: 2px 2px 5px #747474;
+  border: none;
+  outline: none;
+  position: relative;
 }
 
 .result-massage {
@@ -141,6 +173,10 @@ body,
 
 .result-massage_restart-button:active {
   top: 3px;
+}
+
+.interface {
+  display: none;
 }
 
 .interface__buttons {
@@ -179,6 +215,7 @@ body,
   height: 120px;
   -webkit-box-shadow: 2px 2px 5px #747474;
           box-shadow: 2px 2px 5px #747474;
+  background-color: white;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -270,5 +307,8 @@ body,
   }
   .footer__social-network {
     margin-top: 20px;
+  }
+  .name-game {
+    padding-top: 20px;
   }
 }

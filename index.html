@@ -20,17 +20,21 @@
         <button onclick="Info()"><img src="assets/img/icons/ico-info.png" alt=""></button>
         <h1>BlackJack</h1>
         <p>Цель игры: собрать карты суммой очков больше, чем у дилера, но не больше, чем 21. Дилер берёт карты первым.</p>
-        <p>Значения очков каждой карты: от двойки до десятки - от 2 до 10 соответственно, у туза - или 11, у короля, дамы и вальта - 10.</p>
+        <p>Значения очков каждой карты: от двойки до десятки - от 2 до 10 соответственно, у туза - 11, у короля, дамы и вальта - 10.</p>
     </div>
     <div class="wrapper">
         <div class="name-game">
             <div class="container">
                 <h1>BlackJack</h1>
+                <h3 id="versus"></h3>
                 <h3 id="remaining-cards"></h3>
             </div>
         </div>
         <div class="height">
             <div class="container">
+                <div class="start-game">
+                    <button class="start-game_button" onclick="StartGame()">Начать игру</button>
+                </div>
                 <div class="result-massage">
                     <p></p>
                     <input type="button" class="result-massage_restart-button" value="Начать заново"

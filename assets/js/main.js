@@ -1,6 +1,5 @@
 let sumOfPoints, botPoints, arrCards;
-
-StartGame();
+let versusYourPoints = versusBotPoints = 0;
 
 function StartGame() {
     arrCards = CreateArrCards();
@@ -8,6 +7,9 @@ function StartGame() {
 
     PlusBotPoints();
 
+    $('.start-game').css('display', 'none');
+    $('.interface').css('display', 'block');
+    $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
     $('#remaining-cards').text(`Карт осталось: ${arrCards.length}`);
     $('#sum-of-points').text(sumOfPoints);
     $('.interface__buttons_button').removeAttr('disabled');
@@ -63,23 +65,31 @@ function PlusPoints() {
     if (sumOfPoints > 21) {
         BlockedButton();
         $('.result-massage p').text('Вы проиграли! Вы собрали больше 21 очка!');
+        versusBotPoints++;
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
     } else if (sumOfPoints == botPoints == 21) {
         BlockedButton();
-        $('.result-massage p').text('Ничья! Вы и ваш противник собрали по 21 очко!');
+        $('.result-massage p').text('Ничья! Вы и дилер собрали по 21 очко!');
     } else if (sumOfPoints == 21) {
         BlockedButton();
         $('.result-massage p').text('Вы выиграли! Вы собрали 21 очко!');
+        versusYourPoints++;
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
     }
 }
 
 function EndGame() {
     BlockedButton()
     if (botPoints > 21 && sumOfPoints <= 21 || sumOfPoints > botPoints) {
-        $('.result-massage p').text(`Вы победили! Ваш противник собрал ${botPoints} очков`);
+        $('.result-massage p').text(`Вы победили! Очков у дилера: ${botPoints}!`);
+        versusYourPoints++;
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
     } else if (sumOfPoints == botPoints) {
-        $('.result-massage p').text(`Ничья! Вы и ваш противник собрали ${sumOfPoints} очков!`);
+        $('.result-massage p').text(`Ничья! Вы и дилер собрали ${sumOfPoints} очков!`);
     } else {
-        $('.result-massage p').text(`Вы проиграли! Вы собрали меньше очков, чем ваш противник! Ваш противник собрал ${botPoints} очков!`);
+        $('.result-massage p').text(`Вы проиграли! Вы собрали меньше очков, чем дилер! Очков у  дилера: ${botPoints}!`);
+        versusBotPoints++;
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
     }
 }
 
