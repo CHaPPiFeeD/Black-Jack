@@ -1,11 +1,10 @@
-let sumOfPoints, botPoints, arrCards;
+let sumOfPoints, botPoints, arrCards, canTakeCardsBot;
 let versusYourPoints = versusBotPoints = 0;
 
-function StartGame() {
-    arrCards = CreateArrCards();
+function startGame() {
+    arrCards = createArrCards();
     sumOfPoints = botPoints = 0;
-
-    PlusBotPoints();
+    canTakeCardsBot = true;
 
     $('.start-game').css('display', 'none');
     $('.interface').css('display', 'block');
@@ -16,70 +15,78 @@ function StartGame() {
     $('.result-massage').css('display', 'none');
 }
 
-function PlusBotPoints() {
-    let chance, differencePoints;
+function plusBotPoints() {
+    if (!canTakeCardsBot) return;
 
-    takeCard:
-        for (;;) {
-            chance = 0;
-            differencePoints = 21 - botPoints;
+    let differencePoints = 21 - botPoints;
+    console.log(`Разница в очках: ${differencePoints}`);//
 
-            for (let card of arrCards) {
-                if (card <= differencePoints) {
-                    chance++
-                } else {
-                    chance--
-                }
-            }
+    getChance(differencePoints);
 
-            console.log(`Разница в очках: ${differencePoints}`);
-            console.log(`Определение шансов: ${chance}`);
+    if (canTakeCardsBot) {
+        console.log(`- Бот взял очков: ${arrCards[0]}`);//
+        botPoints += arrCards[0];
+        arrCards.shift();
+    }
 
-            if (chance >= 0) {
-                console.log(`Бот взял очков: ${arrCards[0]}`);
-                botPoints += arrCards[0];
-                arrCards.shift();
-            } else {
-                console.log('-----=====-----');
-                console.log(`Очков у бота: ${botPoints}`);
-                console.log('-----=====-----');
-                break takeCard;
-            }
-            console.log('-----');
-        }
+    console.log(`Очков у бота: ${botPoints}`);//
+    $('#remaining-cards').text(`Карт осталось: ${arrCards.length}`);
+
 }
 
-function CreateArrCards() {
+function getChance(difference) {
+    let chance = 0;
+
+    for (let card of arrCards) {
+        if (card <= difference) {
+            chance++
+        } else {
+            chance--
+        }
+    }
+
+    console.log(`Определение шансов: ${chance}`);
+
+    if (chance < 0) canTakeCardsBot = false;
+}
+
+function createArrCards() {
     let firstArrCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
     firstArrCards = firstArrCards.concat(firstArrCards, firstArrCards, firstArrCards);
     return firstArrCards.sort(() => Math.random() - 0.5);
 }
 
-function PlusPoints() {
-    sumOfPoints += arrCards[0];
-    arrCards.shift();
-
+function plusPoints() {
+    sumOfPoints += arrCards.shift();
     $('#sum-of-points').text(sumOfPoints);
     $('#remaining-cards').text(`Карт осталось: ${arrCards.length}`);
 
     if (sumOfPoints > 21) {
-        BlockedButton();
+        blockedButton();
         $('.result-massage p').text('Вы проиграли! Вы собрали больше 21 очка!');
         versusBotPoints++;
         $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
-    } else if (sumOfPoints == botPoints == 21) {
-        BlockedButton();
-        $('.result-massage p').text('Ничья! Вы и дилер собрали по 21 очко!');
     } else if (sumOfPoints == 21) {
-        BlockedButton();
+        blockedButton();
+        canPlusBotPoints();
+
+        if (sumOfPoints == botPoints == 21) {
+            $('.result-massage p').text('Ничья! Вы и дилер собрали по 21 очко!');
+            return;
+        }
+
         $('.result-massage p').text('Вы выиграли! Вы собрали 21 очко!');
         versusYourPoints++;
         $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
     }
+
+
 }
 
-function EndGame() {
-    BlockedButton()
+function endGame() {
+    blockedButton();
+    canPlusBotPoints();
+
     if (botPoints > 21 && sumOfPoints <= 21 || sumOfPoints > botPoints) {
         $('.result-massage p').text(`Вы победили! Очков у дилера: ${botPoints}!`);
         versusYourPoints++;
@@ -93,12 +100,17 @@ function EndGame() {
     }
 }
 
-function BlockedButton() {
+function canPlusBotPoints() {
+    for (;canTakeCardsBot;) {
+        plusBotPoints();
+    }
+}
+
+function blockedButton() {
     $('.interface__buttons_button').attr('disabled', 'disabled');
     $('.result-massage').css('display', 'block');
 }
 
-function Info() {
+function info() {
     $('.info').toggleClass('info-active');
-    console.log('object');
 }
