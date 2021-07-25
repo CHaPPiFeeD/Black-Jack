@@ -8,7 +8,7 @@ function startGame() {
 
     $('.start-game').css('display', 'none');
     $('.interface').css('display', 'block');
-    $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
+    $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Противник`);
     $('#remaining-cards').text(`Карт осталось: ${arrCards.length}`);
     $('#sum-of-points').text(sumOfPoints);
     $('.interface__buttons_button').removeAttr('disabled');
