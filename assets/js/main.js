@@ -65,19 +65,19 @@ function plusPoints() {
         blockedButton();
         $('.result-massage p').text('Вы проиграли! Вы собрали больше 21 очка!');
         versusBotPoints++;
-        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Противник`);
     } else if (sumOfPoints == 21) {
         blockedButton();
         canPlusBotPoints();
 
         if (sumOfPoints == botPoints == 21) {
-            $('.result-massage p').text('Ничья! Вы и дилер собрали по 21 очко!');
+            $('.result-massage p').text('Ничья! Вы и противник собрали по 21 очко!');
             return;
         }
 
         $('.result-massage p').text('Вы выиграли! Вы собрали 21 очко!');
         versusYourPoints++;
-        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} противник`);
     }
 
 
@@ -88,15 +88,15 @@ function endGame() {
     canPlusBotPoints();
 
     if (botPoints > 21 && sumOfPoints <= 21 || sumOfPoints > botPoints) {
-        $('.result-massage p').text(`Вы победили! Очков у дилера: ${botPoints}!`);
+        $('.result-massage p').text(`Вы победили! Очков у противника: ${botPoints}!`);
         versusYourPoints++;
-        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} противник`);
     } else if (sumOfPoints == botPoints) {
-        $('.result-massage p').text(`Ничья! Вы и дилер собрали ${sumOfPoints} очков!`);
+        $('.result-massage p').text(`Ничья! Вы и противник собрали ${sumOfPoints} очков!`);
     } else {
-        $('.result-massage p').text(`Вы проиграли! Вы собрали меньше очков, чем дилер! Очков у  дилера: ${botPoints}!`);
+        $('.result-massage p').text(`Вы проиграли! Вы собрали меньше очков, чем противник! Очков у  противника: ${botPoints}!`);
         versusBotPoints++;
-        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} Дилер`);
+        $('#versus').text(`Вы ${versusYourPoints}:${versusBotPoints} противник`);
     }
 }
 
