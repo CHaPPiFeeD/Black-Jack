@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/icons/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,9 +46,9 @@
         <div class="interface">
             <div class="container">
                 <div class="interface__buttons">
-                    <input type="button" class="interface__buttons_button" value="Поднять карту" onclick="plusPoints(), plusBotPoints()">
+                    <input type="button" class="interface__buttons_button" value="Поднять карту" onclick="plusPlayerPoints(), plusBotPoints()">
                     <div class="interface__buttons_div" title="Ваши очки">
-                        <p id="sum-of-points"></p>
+                        <p id="player-points"></p>
                     </div>
                     <input type="button" class="interface__buttons_button" value="Спасовать" onclick="endGame()">
                 </div>
