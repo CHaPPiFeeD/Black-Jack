@@ -36,9 +36,7 @@ function plusPlayerPoints() {
         blockedButton();
         plusBotPointsEnd();
 
-        if (points.botPoints > 21) {
-            $('.result-massage p').text('Ничья! Вы и противник собрали больше 21 очка!');
-        }
+        if (points.botPoints > 21) $('.result-massage p').text('Ничья! Вы и противник собрали больше 21 очка!');
 
         $('.result-massage p').text('Вы проиграли! Вы собрали больше 21 очка!');
         versus.botPoints++;
@@ -46,10 +44,7 @@ function plusPlayerPoints() {
         blockedButton();
         plusBotPointsEnd();
 
-        if (points.playerPoints == points.botPoints == 21) {
-            $('.result-massage p').text('Ничья! Вы и противник собрали по 21 очко!');
-            return;
-        }
+        if (points.playerPoints == points.botPoints == 21) return $('.result-massage p').text('Ничья! Вы и противник собрали по 21 очко!');
 
         $('.result-massage p').text('Вы выиграли! Вы собрали 21 очко!');
         versus.playerPoints++;
